@@ -1,0 +1,22 @@
+<h1 class="text-center text-decoration-underline mb-5">Deleted Books</h1>
+
+<table class="table w-50 m-auto table-bordered ">
+    <thead>
+        <tr class="text-center">
+            <th>Deleted Books</th>
+            <th>Restore Books</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of archiveData" class="text-center">
+            <td>{{item.name}}</td>
+            <td>
+                <div class="col-md-4 m-auto"> 
+                    <button type="submit" class="btn btn-primary"  *ngIf="archiveData">
+                        <a routerLink="/restore/{{item.id}}" class="text-white text-decoration-none">Restore</a>
+                    </button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

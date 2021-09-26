@@ -1,0 +1,39 @@
+<div class="d-flex justify-content-lg-around my-5">
+    <button type="submit" class="btn btn-success">
+        <a routerLink="/add" class="text-white text-decoration-none">Add</a>
+    </button>
+    <button type="submit" class="btn btn-secondary">
+        <a routerLink="/archive" class="text-white text-decoration-none">Archive</a>
+    </button>
+</div>
+
+<table class="table w-50 m-auto table-bordered ">
+    <thead>
+        <tr class="text-center">
+            <th>Id</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of data" class="text-center">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.category}}</td>
+            <td>
+                <button type="submit" class="btn-sm btn-primary">
+                    <a routerLink="/show/{{item.id}}" class="text-white text-decoration-none">Read</a>
+                </button>
+                <button type="submit" class="btn-sm btn-warning mx-3">
+                    <a routerLink="/edit/{{item.id}}" class="text-white text-decoration-none">Edit</a>
+                </button>
+                <button type="submit" class="btn-sm btn-danger">
+                    <a routerLink="/delete/{{item.id}}" class="text-white text-decoration-none">Delete</a>
+                </button>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+
