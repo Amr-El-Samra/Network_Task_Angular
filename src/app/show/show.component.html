@@ -1,0 +1,29 @@
+<h1 class="text-center text-decoration-underline mb-5">Book Details</h1>
+
+<table class="table w-50 m-auto table-bordered ">
+    <thead>
+        <tr class="text-center">
+            <th>Name</th>
+            <th>Details</th>
+            <th>Number of Pages</th>
+            <th>Price</th>
+            <th>Cover</th>
+            <th>Category</th>
+            <th>Author</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="text-center">
+            <td>{{bookDetails?.name}}</td>
+            <td>{{bookDetails?.details}}</td>
+            <td>{{bookDetails?.numberOfPages}}</td>
+            <td>{{bookDetails?.price}}</td>
+            <td>
+                <img src="{{bookDetails?.cover}}" alt="" class="w-50">
+            </td>
+            <td>{{bookDetails?.category?.name}}</td>
+            <td>{{bookDetails?.author?.name}}</td>
+
+        </tr>
+    </tbody>
+</table>

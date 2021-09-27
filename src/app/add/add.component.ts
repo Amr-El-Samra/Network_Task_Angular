@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RequestsService } from '../requests.service';
+declare var $:any;
 
 @Component({
   selector: 'app-add',
@@ -45,12 +46,9 @@ export class AddComponent implements OnInit {
       }
     )
     this._RequestsService.addedData(formData).subscribe((data)=>{
-      if(data.msg == "Added Successfully"){
-        this._Router.navigateByUrl("/home")
-      }
-      else{
-        // this.addForm.reset();
-        console.log (data);
+      if(data.msg != "Added Successfully"){
+        this.addForm.reset();
+        // console.log (data);
       }
 
     })
@@ -61,6 +59,11 @@ export class AddComponent implements OnInit {
     this.addForm.patchValue({
       cover:this.file
     });
+  }
+
+  url(){
+    this._Router.navigateByUrl("/home");
+    $('#add').modal('hide');
   }
 
   ngOnInit(): void {

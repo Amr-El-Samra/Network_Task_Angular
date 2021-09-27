@@ -20,7 +20,7 @@
         <tr *ngFor="let item of data" class="text-center">
             <td>{{item.id}}</td>
             <td>{{item.name}}</td>
-            <td>{{item.category}}</td>
+            <td>{{item.category.name}}</td>
             <td>
                 <button type="submit" class="btn-sm btn-primary">
                     <a routerLink="/show/{{item.id}}" class="text-white text-decoration-none">Read</a>
@@ -29,11 +29,30 @@
                     <a routerLink="/edit/{{item.id}}" class="text-white text-decoration-none">Edit</a>
                 </button>
                 <button type="submit" class="btn-sm btn-danger">
-                    <a routerLink="/delete/{{item.id}}" class="text-white text-decoration-none">Delete</a>
+                    <a  class="text-white text-decoration-none"  data-bs-toggle="modal" data-bs-target="#delete">Delete</a>
                 </button>
 
             </td>
         </tr>
     </tbody>
 </table>
+
+
+
+<div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Do you want to delete book?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" (click)="delete()">delete Book</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
